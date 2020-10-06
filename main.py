@@ -1,7 +1,12 @@
 # importing pygame 
 import pygame 
 import sys
+sys.path.append(".")
 import winsound
+from Helper.button_helper import Button
+from Helper.text_helper import drawText, drawTextcenter
+from Helper.input_helper import InputBox
+from Helper.input_generator import generate_random_input
 
 pygame.init() 
   
@@ -21,9 +26,10 @@ color_dark = (100,100,100)
 win = pygame.display.set_mode((WIDTH, HEIGHT)) 
  
 # setting title to the window 
-pygame.display.set_caption("Sorting Algorithms Visualization") 
+pygame.display.set_caption("Sorting Algorithms Visualizer") 
   
-  
+inputBox = InputBox(100, 100, 150, 50, '')
+
 # initial position 
 x = 40
 y = 40
@@ -116,7 +122,7 @@ def selection_sort(height):
                 min = j
 
         selection_sort_swap(min, i, height)        
-        update_display(1)
+        update_display(1, 0)
 
 def bubble_sort_swap(index, height, numswaps):
     
@@ -179,6 +185,8 @@ def show(height, numswaps):
     # if mouse is hovered on a button it 
     # changes to lighter shade  
     mouse = pygame.mouse.get_pos() 
+
+    inputBox.draw(win)
     
     text_button = font.render("Reset", True, WHITE)
 
@@ -216,6 +224,7 @@ while run:
     # iterating events 
     for event in pygame.event.get(): 
   
+        inputBox.handle_event(event)
         # if event is to quit 
         if event.type == pygame.QUIT: 
   
@@ -243,8 +252,8 @@ while run:
   
     # if execute flag is true 
     else: 
-        bubble_sort(height, 0)
-        #selection_sort(height)
+        #bubble_sort(height, 0)
+        selection_sort(height)
         #merge_sort(height)
         #insertion_sort(height)
 
