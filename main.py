@@ -30,7 +30,6 @@ y = 40
   
 # width of each bar 
 width = 10
-
 f = open("inputs.txt", "r")
 content = f.read()
 print(content)
