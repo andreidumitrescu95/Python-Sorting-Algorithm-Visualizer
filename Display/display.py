@@ -13,8 +13,8 @@ def update_display(win, height, numswaps, algorithm, number_of_elements, speed):
 
     drawTextcenter("Number of swaps: " + str(numswaps), pygame.font.SysFont('Calibri', 20), win, 100, 25, WHITE)
     drawTextcenter("Algorithm used: " + algorithm, pygame.font.SysFont('Calibri', 20), win, 375, 25, WHITE)
-    drawTextcenter("Number of elements: " + str(number_of_elements), pygame.font.SysFont('Calibri', 20), win, 750, 25, WHITE)
-    drawTextcenter("Algorithm speed: " + speed, pygame.font.SysFont('Calibri', 20), win, 1100, 25, WHITE)
+    drawTextcenter("Number of elements: " + str(number_of_elements), pygame.font.SysFont('Calibri', 20), win, 900, 25, WHITE)
+    drawTextcenter("Algorithm speed: " + speed, pygame.font.SysFont('Calibri', 20), win, 1225, 25, WHITE)
 
     button_start.draw(win)
     button_reset.draw(win)
@@ -24,6 +24,7 @@ def update_display(win, height, numswaps, algorithm, number_of_elements, speed):
     button_merge_sort.draw(win)
     button_20.draw(win)
     button_50.draw(win)
+    button_75.draw(win)
     button_100.draw(win)
     button_slow.draw(win)
     button_medium.draw(win)

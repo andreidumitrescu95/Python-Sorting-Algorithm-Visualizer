@@ -90,6 +90,11 @@ def main(win):
             else:
                 button_50.background_color = DARK_BUTTON
 
+            if(button_75.check() == True):
+                button_75.background_color = LIGHT_BUTTON
+            else:
+                button_75.background_color = DARK_BUTTON
+
             if(button_100.check() == True):
                 button_100.background_color = LIGHT_BUTTON
             else:
@@ -162,6 +167,9 @@ def main(win):
 
                 if(button_50.check() == True):
                     number_of_elements = 50
+
+                if(button_75.check() == True):
+                    number_of_elements = 75
                 
                 if(button_100.check() == True):
                     number_of_elements = 100
