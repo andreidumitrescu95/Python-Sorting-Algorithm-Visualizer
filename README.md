@@ -12,7 +12,11 @@ I built this application in order to get much more accommodated with Python and 
 
 **Selection Sort** - also inefficient on large lists. It divides the input list into two sublists. The first sublist starts from the left and contains the sorted elements and the second sublist contains only the unsorted elements. Once we find the minimum element from the unsorted array during an interation we remove it from the second sublist and insert it in the sorted one. Because of this the worst case performance is O(n^2) comparisons and O(n) swaps and best case is O(n^2) comparisons and O(1) swaps. So even in the best case scenario the complexity of this algorithm is quadratic. The only advantage of this algorithm is that it has the minimum number of swaps possible, n-1 in the worst case.
 
-**Merge Sort**
+**Merge Sort** - WIP
+
+**Quick Sort** - WIP
+
+**Heap Sort** - WIP
 
 ## The Application
 
