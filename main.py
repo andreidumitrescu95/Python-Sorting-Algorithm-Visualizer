@@ -1,8 +1,8 @@
-# importing pygame 
 import pygame 
 import sys
 sys.path.append(".")
 import winsound
+import time
 from Helper.button_helper import Button
 from Helper.text_helper import drawText, drawTextcenter
 from Helper.input_helper import InputBox
@@ -30,6 +30,8 @@ def main(win):
     speed = "None"
     number_of_elements = 0
     current_numswaps = 0
+    start_time = 0
+    elapsed_time = 0
 
     run = True
 
@@ -132,9 +134,11 @@ def main(win):
                         already_generated = 1
 
                     if(algorithm == "Bubble Sort"):
+                        start_time = time.time()
                         current_numswaps = bubble_sort(win, height, 0, algorithm, number_of_elements, speed)
+                        elapsed_time = time.time() - start_time
                         #already_sorted = 1
-                        #update_display(win, height, x, algorithm, number_of_elements, speed)
+                        update_display(win, height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time)
                         #bubble_sort(lambda: update_display(win, height, 0, algorithm, number_of_elements, speed), height, 0, algorithm, number_of_elements, speed)
 
                     if(algorithm == "Insertion Sort"):
@@ -189,6 +193,6 @@ def main(win):
         # checking if execute flag is false 
         if execute == False: 
     
-            update_display(win, height, current_numswaps, algorithm, number_of_elements, speed)
+            update_display(win, height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time)
 
 main(win)

@@ -25,4 +25,4 @@ def selection_sort(win, height, numswaps, algorithm, number_of_elements, speed):
                 min = j
 
         numswaps = selection_sort_swap(min, i, height, numswaps)        
-        update_display(win, height, numswaps, algorithm, number_of_elements, speed)
+        update_display(win, height, numswaps, algorithm, number_of_elements, speed, 0)

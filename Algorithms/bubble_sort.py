@@ -21,7 +21,7 @@ def bubble_sort(win, height, numswaps, algorithm, number_of_elements, speed):
                 swap_occurred = 1;
                 
                 numswaps = bubble_sort_swap(i, height, numswaps) 
-                update_display(win, height, numswaps, algorithm, number_of_elements, speed)           
+                update_display(win, height, numswaps, algorithm, number_of_elements, speed, 0)           
                 #update_display()                    
     
     if(swap_occurred == 1):

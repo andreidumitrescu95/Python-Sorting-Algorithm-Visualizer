@@ -15,5 +15,5 @@ def insertion_sort(win, height, numswaps, algorithm, number_of_elements, speed):
                 height[j + 1] = height[j] 
                 j -= 1
                 numswaps = numswaps + 1
-                update_display(win, height, numswaps, algorithm, number_of_elements, speed)
+                update_display(win, height, numswaps, algorithm, number_of_elements, speed, 0)
         height[j + 1] = key 
