@@ -5,6 +5,6 @@ def generate_random_input(size):
 
     randomList = []
     for i in range(size):
-        number = random.randint(1,200)
+        number = random.randint(5,200)
         randomList.append(number)
     return randomList
