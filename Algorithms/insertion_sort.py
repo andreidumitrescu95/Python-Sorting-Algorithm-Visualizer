@@ -25,4 +25,7 @@ def insertion_sort(win, height, color_height, numswaps, algorithm, number_of_ele
                 color_height[j] = TURQUOISE
         height[j + 1] = key 
 
+    for i in range(len(color_height)):
+        color_height[i] = PURPLE
+    
     return numswaps

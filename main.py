@@ -12,6 +12,7 @@ from Algorithms.bubble_sort import bubble_sort
 from Algorithms.selection_sort import selection_sort
 from Algorithms.insertion_sort import insertion_sort
 from Algorithms.merge_sort import merge_sort
+from Algorithms.heap_sort import heap_sort
 from Display.display import update_display, show
 
 pygame.init() 
@@ -78,6 +79,11 @@ def main(win):
             else:
                 button_selection_sort.background_color = DARK_BUTTON
 
+            if(button_heap_sort.check() == True):
+                button_heap_sort.background_color = LIGHT_BUTTON
+            else:
+                button_heap_sort.background_color = DARK_BUTTON
+
             if(button_merge_sort.check() == True):
                 button_merge_sort.background_color = LIGHT_BUTTON
             else:
@@ -143,13 +149,19 @@ def main(win):
 
                     if(algorithm == "Insertion Sort"):
                         start_time = time.time()
-                        numswaps = insertion_sort(win, height, color_height, 0, algorithm, number_of_elements, speed)
+                        current_numswaps = insertion_sort(win, height, color_height, 0, algorithm, number_of_elements, speed)
                         elapsed_time = time.time() - start_time
                         update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
 
                     if(algorithm == "Selection Sort"):
                         start_time = time.time()
-                        numswaps = selection_sort(win, height, color_height, 0, algorithm, number_of_elements, speed)
+                        current_numswaps = selection_sort(win, height, color_height, 0, algorithm, number_of_elements, speed)
+                        elapsed_time = time.time() - start_time
+                        update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
+
+                    if(algorithm == "Heap Sort"):
+                        start_time = time.time()
+                        current_numswaps = heap_sort(height, color_height, win, 0, algorithm, number_of_elements, speed)
                         elapsed_time = time.time() - start_time
                         update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
 
@@ -173,6 +185,9 @@ def main(win):
 
                 if(button_merge_sort.check() == True):
                     algorithm = "Merge Sort"
+
+                if(button_heap_sort.check() == True):
+                    algorithm = "Heap Sort"
 
                 if(button_20.check() == True):
                     number_of_elements = 20
