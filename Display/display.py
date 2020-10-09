@@ -4,12 +4,12 @@ from Helper.text_helper import drawTextcenter, drawText
 
 pygame.init()
 
-def update_display(win, height, numswaps, algorithm, number_of_elements, speed, time):
+def update_display(win, height, color_height, numswaps, algorithm, number_of_elements, speed, time, running):
     
     win.fill(BLACK) 
     
     # call show method to display the list items 
-    show(win, height, number_of_elements) 
+    show(win, height, color_height, number_of_elements) 
 
     for i in range(15):
         pygame.draw.line(win, TURQUOISE, (0, 165+i), (WIDTH, 165+i))
@@ -43,34 +43,30 @@ def update_display(win, height, numswaps, algorithm, number_of_elements, speed, 
     button_instant.draw(win)
 
     # create a time delay 
-    delay = 0
-    if(speed == "Slow"):
-        delay = 50
-    if(speed == "Medium"):
-        delay = 25
-    if(speed == "Fast"):
-        delay = 10
-    if(speed == "No delay"):
+    if(running == True):
         delay = 0
-    pygame.time.delay(delay) 
+        if(speed == "Slow"):
+            delay = 1000
+        if(speed == "Medium"):
+            delay = 50
+        if(speed == "Fast"):
+            delay = 25
+        if(speed == "No delay"):
+            delay = 1
+        pygame.time.delay(delay)
     
     # update the display 
     pygame.display.update() 
 
 # method to show the list of height 
-def show(win, height, number_of_elements): 
-      
+def show(win, height, color_height, number_of_elements): 
+    
     if(number_of_elements != -1 and len(height) != 0):
 
         maximum_value = max(height)
         step = (WIDTH/len(height))
 
         for i in range(len(height)): 
-    
-            x = Button(step * (i+1), HEIGHT, -(step-10), -(height[i]/maximum_value)*3*HEIGHT/4, BLACK, TURQUOISE, str(height[i]), int(round(step - 20)))
-            x.draw(win)
-            #font = pygame.font.SysFont('Arial', int(round(step - 13)))
-            #text = font.render(str(height[i]), False, (255, 0, 0))
-            #rectangle = pygame.draw.rect(win, (255, 255, 0), (step * (i+1), HEIGHT, -(step-10), -(height[i]/maximum_value)*3*HEIGHT/4)) 
-            #text_rect = text.get_rect(center=(step * (i+1) - (step-10)/2, HEIGHT - 10))
-            #win.blit(text, text_rect)
+            
+            x = Button(step * (i+1), HEIGHT, -(step), -(height[i]/maximum_value)*3*HEIGHT/4, BLACK, color_height[i], str(height[i]), int(round(step - 20)))
+            x.draw(win)    

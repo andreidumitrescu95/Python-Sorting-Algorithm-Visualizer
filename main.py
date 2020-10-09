@@ -24,6 +24,7 @@ pygame.display.set_caption("Sorting Algorithms Visualizer")
 def main(win):
     # infinite loop 
     height = []
+    color_height = []
     already_generated = 0
     already_sorted = 0
     algorithm = "None"
@@ -130,22 +131,27 @@ def main(win):
 
                     if(already_generated != 1):
                         height = generate_random_input(number_of_elements)
-                        #print(height)
+                        for i in range(len(height)):
+                            color_height.append(TURQUOISE)
                         already_generated = 1
 
                     if(algorithm == "Bubble Sort"):
                         start_time = time.time()
-                        current_numswaps = bubble_sort(win, height, 0, algorithm, number_of_elements, speed)
+                        current_numswaps = bubble_sort(win, height, color_height, 0, algorithm, number_of_elements, speed)
                         elapsed_time = time.time() - start_time
-                        #already_sorted = 1
-                        update_display(win, height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time)
-                        #bubble_sort(lambda: update_display(win, height, 0, algorithm, number_of_elements, speed), height, 0, algorithm, number_of_elements, speed)
+                        update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
 
                     if(algorithm == "Insertion Sort"):
-                        insertion_sort(win, height, 0, algorithm, number_of_elements, speed)
+                        start_time = time.time()
+                        numswaps = insertion_sort(win, height, color_height, 0, algorithm, number_of_elements, speed)
+                        elapsed_time = time.time() - start_time
+                        update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
 
                     if(algorithm == "Selection Sort"):
-                        selection_sort(win, height, 0, algorithm, number_of_elements, speed)
+                        start_time = time.time()
+                        numswaps = selection_sort(win, height, color_height, 0, algorithm, number_of_elements, speed)
+                        elapsed_time = time.time() - start_time
+                        update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
 
                 if(button_reset.check() == True):
                     algorithm = "None"
@@ -153,6 +159,8 @@ def main(win):
                     speed = "None"
                     already_generated = 0
                     already_sorted = 0
+                    color_height = []
+                    height = []
 
                 if(button_bubble_sort.check() == True):
                     algorithm = "Bubble Sort"
@@ -193,6 +201,6 @@ def main(win):
         # checking if execute flag is false 
         if execute == False: 
     
-            update_display(win, height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time)
+            update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
 
 main(win)

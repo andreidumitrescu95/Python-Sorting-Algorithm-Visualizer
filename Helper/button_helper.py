@@ -3,6 +3,7 @@ from Helper.text_helper import drawText, drawTextcenter
 
 class Button(object):
     global screen_width,screen_height,screen
+    value = -1
     def __init__(self,x,y,width,height,text_color,background_color,text, font_size):
         self.rect=pygame.Rect(x,y,width,height)
         self.x=x
