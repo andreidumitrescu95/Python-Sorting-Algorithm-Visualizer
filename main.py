@@ -1,4 +1,5 @@
 import pygame 
+import numpy as np
 import sys
 sys.path.append(".")
 import winsound
@@ -13,18 +14,21 @@ from Algorithms.selection_sort import selection_sort
 from Algorithms.insertion_sort import insertion_sort
 from Algorithms.merge_sort import merge_sort
 from Algorithms.heap_sort import heap_sort
+from Algorithms.quick_sort import quick_sort
+from Algorithms.radix_sort import radix_sort
 from Display.display import update_display, show
 
 pygame.init() 
-  
+
 win = pygame.display.set_mode((WIDTH, HEIGHT)) 
- 
+
 # setting title to the window 
 pygame.display.set_caption("Sorting Algorithms Visualizer") 
 
 def main(win):
     # infinite loop 
     height = []
+
     color_height = []
     already_generated = 0
     already_sorted = 0
@@ -88,6 +92,16 @@ def main(win):
                 button_merge_sort.background_color = LIGHT_BUTTON
             else:
                 button_merge_sort.background_color = DARK_BUTTON
+
+            if(button_quick_sort.check() == True):
+                button_quick_sort.background_color = LIGHT_BUTTON
+            else:
+                button_quick_sort.background_color = DARK_BUTTON
+
+            if(button_radix_sort.check() == True):
+                button_radix_sort.background_color = LIGHT_BUTTON
+            else:
+                button_radix_sort.background_color = DARK_BUTTON
 
             if(button_20.check() == True):
                 button_20.background_color = LIGHT_BUTTON
@@ -165,6 +179,24 @@ def main(win):
                         elapsed_time = time.time() - start_time
                         update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
 
+                    if(algorithm == "Merge Sort"):
+                        start_time = time.time()
+                        current_numswaps = merge_sort(height, 0, len(height), color_height, win, 0, algorithm, number_of_elements, speed)
+                        elapsed_time = time.time() - start_time
+                        update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
+
+                    if(algorithm == "Quick Sort"):
+                        start_time = time.time()
+                        current_numswaps = quick_sort(height, 0, len(height) - 1, color_height, win, 0, algorithm, number_of_elements, speed)
+                        elapsed_time = time.time() - start_time
+                        update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
+
+                    if(algorithm == "Radix Sort"):
+                        start_time = time.time()
+                        current_numswaps = radix_sort(height, color_height, win, 0, algorithm, number_of_elements, speed)
+                        elapsed_time = time.time() - start_time
+                        update_display(win, height, color_height, current_numswaps, algorithm, number_of_elements, speed, elapsed_time, False)
+
                 if(button_reset.check() == True):
                     algorithm = "None"
                     number_of_elements = 0
@@ -189,8 +221,14 @@ def main(win):
                 if(button_heap_sort.check() == True):
                     algorithm = "Heap Sort"
 
+                if(button_quick_sort.check() == True):
+                    algorithm = "Quick Sort"
+
+                if(button_radix_sort.check() == True):
+                    algorithm = "Radix Sort"
+
                 if(button_20.check() == True):
-                    number_of_elements = 20
+                    number_of_elements = 9
 
                 if(button_50.check() == True):
                     number_of_elements = 50

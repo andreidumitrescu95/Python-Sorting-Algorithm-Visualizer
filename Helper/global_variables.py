@@ -26,7 +26,7 @@ button_insertion_sort = Button(375, 50, 100, 50, WHITE, DARK_BUTTON, "INSERTION"
 button_merge_sort = Button(375, 100, 100, 50, WHITE, DARK_BUTTON, "MERGE", 18)
 button_quick_sort = Button(475, 50, 100, 50, WHITE, DARK_BUTTON, "QUICK", 18)
 button_heap_sort = Button(475, 100, 100, 50, WHITE, DARK_BUTTON, "HEAP", 18)
-button_todo3 = Button(575, 50, 100, 50, WHITE, DARK_BUTTON, "TODO3", 18)
+button_radix_sort = Button(575, 50, 100, 50, WHITE, DARK_BUTTON, "RADIX", 18)
 button_todo4 = Button(575, 100, 100, 50, WHITE, DARK_BUTTON, "TODO4", 18)
 
 button_20 = Button(800, 50, 100, 50, WHITE, DARK_BUTTON, "20", 18)

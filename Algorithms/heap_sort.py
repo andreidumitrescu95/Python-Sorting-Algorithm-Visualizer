@@ -24,7 +24,7 @@ def heapify(height, n, i, color_height, win, numswaps, algorithm, number_of_elem
         update_display(win, height, color_height, numswaps, algorithm, number_of_elements, speed, 0, True)
         # Heapify the root. 
         heapify(height, n, largest, color_height, win, numswaps, algorithm, number_of_elements, speed) 
-  
+
 # The main function to sort an heightay of given size 
 def heap_sort(height, color_height, win, numswaps, algorithm, number_of_elements, speed): 
     n = len(height) 

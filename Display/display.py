@@ -31,7 +31,7 @@ def update_display(win, height, color_height, numswaps, algorithm, number_of_ele
     button_merge_sort.draw(win)
     button_heap_sort.draw(win)
     button_quick_sort.draw(win)
-    button_todo3.draw(win)
+    button_radix_sort.draw(win)
     button_todo4.draw(win)
     button_20.draw(win)
     button_50.draw(win)
@@ -46,15 +46,17 @@ def update_display(win, height, color_height, numswaps, algorithm, number_of_ele
     if(running == True):
         delay = 0
         if(speed == "Slow"):
-            delay = 1000
+            delay = 5000
+            pygame.time.delay(delay)
         if(speed == "Medium"):
             delay = 50
+            pygame.time.delay(delay)
         if(speed == "Fast"):
             delay = 25
+            pygame.time.delay(delay)
         if(speed == "No delay"):
-            delay = 1
-        pygame.time.delay(delay)
-    
+            delay = 0
+            
     # update the display 
     pygame.display.update() 
 
