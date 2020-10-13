@@ -4,6 +4,8 @@ I built this application in order to get much more accommodated with Python and 
 
 ## The Project
 
+The project is implemented in Python using Pygame. The program allows the user to choose from a selection of sorting algorithms, select the number of elements to be sorted and also input the speed at which the visualization process will execute.
+
 ## The Algorithms
 
 **Bubble Sort** - is one of the simpler sorting algorithms as it repeatedly steps through the list comparing adjacent elements and swapping them in case they are not in ascending order. Worst case performance will be met when the array is entirely reversed so we would get O(n^2) comparisons and swaps. Best case would be if the array would be already sorted and it would amount to O(n) comparisons and O(1) swaps.
@@ -26,3 +28,6 @@ The user is able to select an algorithm from a selection to visualize and also c
 
 ![](https://github.com/andreidumitrescu95/Python-Sorting-Algorithm-Visualizer/blob/master/sorting_visualization.gif)
 
+## WIP features and functionalities
+
+At the current stage all but one sorting algorithms have been implemented and the flow of the application is complete enough so that a user may be able to visualize all algorithms and reset the visualization easily. Further adjustments can be made in the optimization department. I am considering switching from lists and arrays to numpy arrays which should make the app run a bit faster, seeing as numpy data structures are linear and they take less time to swap and compare values.
